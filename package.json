@@ -22,10 +22,14 @@
       "comma-dangle": [
         "error",
         "never"
-      ]
+      ],
+      "unicorn/text-encoding-identifier-case": "off"
     }
   },
   "engines": {
     "node": ">= 18"
+  },
+  "dependencies": {
+    "chardet": "^1.4.0"
   }
 }
