@@ -9,9 +9,12 @@
   "private": false,
   "scripts": {
     "lint": "xo",
-    "test": "ava"
+    "test": "ava",
+    "transpile": "swc lib/ -d browser/"
   },
   "devDependencies": {
+    "@swc/cli": "^0.1.57",
+    "@swc/core": "^1.2.249",
     "ava": "^4.3.3",
     "get-stream": "^6.0.1",
     "xo": "^0.52.3"

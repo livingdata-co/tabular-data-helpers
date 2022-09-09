@@ -1,0 +1,5 @@
+{
+  "env": {
+    "targets": "> 0.5% in FR, last 2 versions, Firefox ESR, not ie 11, not dead"
+  }
+}
