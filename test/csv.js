@@ -1,12 +1,12 @@
-import {readFileSync} from 'node:fs'
+import {createReadStream} from 'node:fs'
 import test from 'ava'
 
-import {previewCsvFromBuffer} from '../lib/csv.js'
+import {previewCsvFromStream} from '../lib/csv.js'
 
 test('detecting CSV/UTF-8', async t => {
   const path = new URL('fixtures/sample-utf8.csv', import.meta.url)
-  const buffer = readFileSync(path)
-  const result = await previewCsvFromBuffer(buffer)
+  const inputStream = createReadStream(path)
+  const result = await previewCsvFromStream(inputStream)
   t.deepEqual(result, {
     format: 'csv',
     formatOptions: {
@@ -24,8 +24,8 @@ test('detecting CSV/UTF-8', async t => {
 
 test('detecting CSV/ISO-8859-1', async t => {
   const path = new URL('fixtures/sample-latin1.csv', import.meta.url)
-  const buffer = readFileSync(path)
-  const result = await previewCsvFromBuffer(buffer)
+  const inputStream = createReadStream(path)
+  const result = await previewCsvFromStream(inputStream)
   t.deepEqual(result, {
     format: 'csv',
     formatOptions: {
@@ -43,8 +43,8 @@ test('detecting CSV/ISO-8859-1', async t => {
 
 test('parsing invalid CSV', async t => {
   const path = new URL('fixtures/sample-invalid.csv', import.meta.url)
-  const buffer = readFileSync(path)
-  const result = await previewCsvFromBuffer(buffer)
+  const inputStream = createReadStream(path)
+  const result = await previewCsvFromStream(inputStream)
   t.deepEqual(result, {
     format: 'csv',
     formatOptions: {
