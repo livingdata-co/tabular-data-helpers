@@ -30,15 +30,18 @@
         "error",
         "never"
       ],
-      "unicorn/text-encoding-identifier-case": "off"
+      "unicorn/text-encoding-identifier-case": "off",
+      "unicorn/prefer-node-protocol": "off"
     }
   },
   "engines": {
     "node": ">= 18"
   },
   "dependencies": {
+    "buffer": "^6.0.3",
     "chardet": "^1.4.0",
     "iconv-lite": "^0.6.3",
-    "papaparse": "^5.3.2"
+    "papaparse": "^5.3.2",
+    "readable-stream": "^4.1.0"
   }
 }
