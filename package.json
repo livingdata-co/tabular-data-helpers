@@ -2,7 +2,8 @@
   "name": "table-reader",
   "version": "0.0.0",
   "type": "module",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "browser": "browser/index.js",
   "repository": "https://github.com/livingdata-co/table-reader",
   "author": "Jérôme Desboeufs <jerome@livingdata.co>",
   "license": "MIT",
@@ -10,7 +11,8 @@
   "scripts": {
     "lint": "xo",
     "test": "ava",
-    "transpile": "swc lib/ -d browser/"
+    "transpile": "swc lib/ -d browser/",
+    "prepare": "npm run transpile"
   },
   "devDependencies": {
     "@swc/cli": "^0.1.57",
