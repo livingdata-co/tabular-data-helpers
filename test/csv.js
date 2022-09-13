@@ -1,7 +1,7 @@
 import {createReadStream} from 'node:fs'
 import test from 'ava'
 
-import {previewCsvFromStream} from '../lib/csv.js'
+import {previewCsvFromStream, validateCsvFromStream} from '../lib/csv.js'
 
 test('detecting CSV/UTF-8', async t => {
   const path = new URL('fixtures/sample-utf8.csv', import.meta.url)
@@ -54,5 +54,33 @@ test('parsing invalid CSV', async t => {
       quoteChar: '"'
     },
     parseErrors: ['TooManyFields']
+  })
+})
+
+test('validate CSV file / valid', async t => {
+  const path = new URL('fixtures/sample-utf8.csv', import.meta.url)
+  const inputStream = createReadStream(path)
+
+  await new Promise(resolve => {
+    const emitter = validateCsvFromStream(inputStream)
+
+    emitter.once('complete', result => {
+      t.true(result.isValid)
+      resolve()
+    })
+  })
+})
+
+test('validate CSV file / corrupted', t => {
+  const path = new URL('fixtures/sample-invalid.csv', import.meta.url)
+  const inputStream = createReadStream(path)
+
+  return new Promise(resolve => {
+    const emitter = validateCsvFromStream(inputStream)
+
+    emitter.once('error', error => {
+      t.is(error.message, 'Error in CSV file: TooManyFields')
+      resolve()
+    })
   })
 })
