@@ -1,13 +1,20 @@
 {
-  "name": "table-reader",
+  "name": "@livingdata/tabular-data-helpers",
   "version": "0.0.0",
   "type": "module",
   "main": "lib/index.js",
   "browser": "browser/index.js",
-  "repository": "https://github.com/livingdata-co/table-reader",
+  "repository": "https://github.com/livingdata-co/tabular-data-helpers",
   "author": "Jérôme Desboeufs <jerome@livingdata.co>",
   "license": "MIT",
   "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "lib",
+    "browser"
+  ],
   "scripts": {
     "lint": "xo",
     "test": "ava",
