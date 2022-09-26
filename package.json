@@ -19,7 +19,7 @@
     "lint": "xo",
     "test": "ava",
     "transpile": "swc lib/ -d browser/",
-    "prepare": "npm run transpile"
+    "prepublishOnly": "npm run transpile"
   },
   "devDependencies": {
     "@swc/cli": "^0.1.57",
