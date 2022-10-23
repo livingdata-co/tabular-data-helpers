@@ -1,7 +1,8 @@
 import {createReadStream} from 'node:fs'
 import test from 'ava'
+import getStream from 'get-stream'
 
-import {previewCsvFromStream, validateCsvFromStream} from '../lib/csv.js'
+import {previewCsvFromStream, validateCsvFromStream, createCsvReadStream} from '../lib/csv.js'
 
 test('detecting CSV/UTF-8', async t => {
   const path = new URL('fixtures/sample-utf8.csv', import.meta.url)
@@ -83,4 +84,14 @@ test('validate CSV file / corrupted', t => {
       resolve()
     })
   })
+})
+
+test('read CSV file', async t => {
+  const path = new URL('fixtures/sample-utf8.csv', import.meta.url)
+  const inputStream = createReadStream(path)
+  const readStream = createCsvReadStream()
+
+  const rows = await getStream.array(inputStream.pipe(readStream))
+  t.is(rows.length, 1)
+  t.deepEqual(rows[0], {foo: 'Île de Ré', bar: 'Manhattan', baz: 'Bali'})
 })
