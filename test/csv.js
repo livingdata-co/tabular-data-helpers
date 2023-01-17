@@ -58,6 +58,20 @@ test('parsing invalid CSV', async t => {
   })
 })
 
+test('validate CSV file / single column / no delimiter defined', t => {
+  const path = new URL('fixtures/single-column.csv', import.meta.url)
+  const inputStream = createReadStream(path)
+
+  return new Promise(resolve => {
+    const emitter = validateCsvFromStream(inputStream)
+
+    emitter.once('error', error => {
+      t.is(error.message, 'Error in CSV file: UndetectableDelimiter')
+      resolve()
+    })
+  })
+})
+
 test('validate CSV file / valid', async t => {
   const path = new URL('fixtures/sample-utf8.csv', import.meta.url)
   const inputStream = createReadStream(path)
