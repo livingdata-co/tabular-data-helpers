@@ -28,7 +28,7 @@
     "iconv-lite": "^0.6.3",
     "papaparse": "^5.3.2",
     "pumpify": "^2.0.1",
-    "readable-stream": "^4.2.0"
+    "readable-stream": "^4.3.0"
   },
   "devDependencies": {
     "@swc/cli": "^0.1.59",
