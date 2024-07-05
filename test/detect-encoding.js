@@ -1,5 +1,6 @@
 import test from 'ava'
 import iconv from 'iconv-lite'
+
 import {selectEncoding, detectEncoding} from '../lib/detect-encoding.js'
 
 test('selectEncoding empty', t => {

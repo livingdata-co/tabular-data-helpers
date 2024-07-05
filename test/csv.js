@@ -1,4 +1,5 @@
 import {createReadStream} from 'node:fs'
+
 import test from 'ava'
 import {getStreamAsArray} from 'get-stream'
 
