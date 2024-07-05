@@ -1,6 +1,6 @@
 import {createReadStream} from 'node:fs'
 import test from 'ava'
-import getStream from 'get-stream'
+import {getStreamAsArray} from 'get-stream'
 
 import {previewCsvFromStream, validateCsvFromStream, createCsvReadStream} from '../lib/csv.js'
 
@@ -105,7 +105,7 @@ test('read CSV file', async t => {
   const inputStream = createReadStream(path)
   const readStream = createCsvReadStream()
 
-  const rows = await getStream.array(inputStream.pipe(readStream))
+  const rows = await getStreamAsArray(inputStream.pipe(readStream))
   t.is(rows.length, 1)
   t.deepEqual(rows[0], {foo: 'Île de Ré', bar: 'Manhattan', baz: 'Bali'})
 })
