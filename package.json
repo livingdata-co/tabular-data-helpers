@@ -48,7 +48,9 @@
       ],
       "import/order": [
         "error",
-        {"newlines-between": "always"}
+        {
+          "newlines-between": "always"
+        }
       ],
       "unicorn/text-encoding-identifier-case": "off",
       "unicorn/prefer-node-protocol": "off",
