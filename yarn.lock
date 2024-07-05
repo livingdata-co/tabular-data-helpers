@@ -103,7 +103,7 @@ __metadata:
     "@swc/core": "npm:^1.6.8-nightly-20240705.2"
     ava: "npm:^6.1.3"
     buffer: "npm:^6.0.3"
-    chardet: "npm:^1.5.1"
+    chardet: "npm:^2.0.0"
     events: "npm:^3.3.0"
     get-stream: "npm:^9.0.1"
     iconv-lite: "npm:^0.6.3"
@@ -1237,10 +1237,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chardet@npm:^1.5.1":
-  version: 1.5.1
-  resolution: "chardet@npm:1.5.1"
-  checksum: 10c0/dd9ed3d231bb418339673a14d65de8470c367bf4502a77d667745dd9509ec302844606f6581d47f507178b8713d6fc0349010c951c00c95bb56a65d5fb2e6c7e
+"chardet@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "chardet@npm:2.0.0"
+  checksum: 10c0/e4d302e6116bf421d8dd0eaac09b5b3f9d88c17d9540f81ccde40e586c2a868c8a67a0dd4b1fe702f5ad63580623832884f65c43b9dffb6814e45eb005e26215
   languageName: node
   linkType: hard
 
