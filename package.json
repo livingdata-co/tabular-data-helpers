@@ -17,6 +17,7 @@
   "scripts": {
     "lint": "xo",
     "test": "c8 ava",
+    "test-lcov": "c8 --reporter=lcov --reporter=text ava",
     "transpile": "swc lib/ -d browser/",
     "prepublishOnly": "npm run transpile"
   },
