@@ -7,20 +7,20 @@ test('selectEncoding empty', t => {
   t.is(selectEncoding([]), 'UTF-8')
 })
 
-test('selectEncoding one allowed', t => {
-  t.is(selectEncoding([{name: 'ISO-8859-1'}]), 'ISO-8859-1')
+test('selectEncoding fallback Latin-9', t => {
+  t.is(selectEncoding([{name: 'ISO-8859-1'}]), 'ISO-8859-15')
 })
 
 test('selectEncoding one rejected', t => {
   t.is(selectEncoding([{name: 'ISO-8859-9'}]), 'UTF-8')
 })
 
-test('selectEncoding multiple allowed', t => {
+test('selectEncoding multiple allowed fallback', t => {
   t.is(selectEncoding([
     {name: 'ISO-8859-9'},
     {name: 'ISO-8859-1'},
     {name: 'ISO-8859-6'}
-  ]), 'ISO-8859-1')
+  ]), 'ISO-8859-15')
 })
 
 test('selectEncoding multiple rejected', t => {
@@ -37,7 +37,7 @@ test('detectEncoding / UTF-8', t => {
 
 test('detectEncoding / ISO-8859-1', t => {
   const text = iconv.encode('éléphant', 'ISO-8859-1')
-  t.is(detectEncoding(text), 'ISO-8859-1')
+  t.is(detectEncoding(text), 'ISO-8859-15')
 })
 
 test('detectEncoding / fallback UTF-8 when unknown', t => {

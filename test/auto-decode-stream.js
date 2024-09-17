@@ -19,7 +19,7 @@ test('createAutoDecodeStream / ISO-8859-1', async t => {
       .pipe(autoDecodeStream)
   )
 
-  t.is(encoding, 'ISO-8859-1')
+  t.is(encoding, 'ISO-8859-15')
   t.is(decodedString, 'éléphant')
 })
 

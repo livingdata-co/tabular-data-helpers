@@ -31,7 +31,7 @@ test('detecting CSV/ISO-8859-1', async t => {
   t.deepEqual(result, {
     format: 'csv',
     formatOptions: {
-      encoding: 'ISO-8859-1',
+      encoding: 'ISO-8859-15',
       delimiter: ',',
       linebreak: '\n',
       quoteChar: '"'
@@ -50,7 +50,7 @@ test('parsing invalid CSV', async t => {
   t.deepEqual(result, {
     format: 'csv',
     formatOptions: {
-      encoding: 'ISO-8859-1',
+      encoding: 'ISO-8859-15',
       delimiter: ',',
       linebreak: '\n',
       quoteChar: '"'
