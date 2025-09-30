@@ -1,4 +1,3 @@
-/* eslint-disable n/no-unsupported-features/node-builtins */
 import {Blob} from 'node:buffer'
 
 import test from 'ava'
