@@ -17,16 +17,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Enable corepack
-      run: corepack enable
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'yarn'
-    - run: yarn --immutable
-    - run: yarn lint
-    - run: yarn test-lcov
-    - run: yarn transpile
+        cache: 'npm'
+    - run: npm ci
+    - run: npm run lint
+    - run: npm run test-lcov
+    - run: npm run transpile
     - name: Coveralls
       uses: coverallsapp/github-action@v2
